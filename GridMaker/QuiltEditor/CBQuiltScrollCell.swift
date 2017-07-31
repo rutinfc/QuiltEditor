@@ -120,7 +120,7 @@ class CBQuiltScrollCell: UICollectionViewCell, UIScrollViewDelegate {
         self.prevPosition = offset
         self.detectingFace = true
         
-        print("CACHED : \(String(describing: self.title.text)) | \(scrollView.contentOffset) | \(scrollView.zoomScale) -> \(offset) | \(String(describing: self.prevDiffScale))")
+//        print("CACHED : \(String(describing: self.title.text)) | \(scrollView.contentOffset) | \(scrollView.zoomScale) -> \(offset) | \(String(describing: self.prevDiffScale))")
     }
     
     fileprivate func updateConstraints(viewSize:CGSize) {
