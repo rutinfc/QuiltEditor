@@ -32,10 +32,10 @@ extension UIScrollView {
         rect.origin = center
         rect.size = size
         
-        let view = UIView(frame: rect)
-        view.layer.borderColor = UIColor.green.cgColor
-        view.layer.borderWidth = 0.5
-        self.addSubview(view)
+//        let view = UIView(frame: rect)
+//        view.layer.borderColor = UIColor.green.cgColor
+//        view.layer.borderWidth = 0.5
+//        self.addSubview(view)
         
         self.scrollRectToVisible(rect, animated: animated)
     }

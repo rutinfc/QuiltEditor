@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C3C89071F30258C003B0309 /* CBFilterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3C89061F30258C003B0309 /* CBFilterInfo.swift */; };
+		1C3C89091F3025E7003B0309 /* CBQuiltItemLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3C89081F3025E7003B0309 /* CBQuiltItemLoader.swift */; };
+		1C3C890C1F3072CE003B0309 /* 01.acv in Resources */ = {isa = PBXBuildFile; fileRef = 1C3C890B1F3072CE003B0309 /* 01.acv */; };
+		1C3C89111F308080003B0309 /* 02.acv in Resources */ = {isa = PBXBuildFile; fileRef = 1C3C890F1F307691003B0309 /* 02.acv */; };
+		1C3C89121F308083003B0309 /* 03.acv in Resources */ = {isa = PBXBuildFile; fileRef = 1C3C89101F307691003B0309 /* 03.acv */; };
 		1C7FC9851F282AE300FBC5DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7FC9841F282AE300FBC5DA /* AppDelegate.swift */; };
 		1C7FC9871F282AE300FBC5DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7FC9861F282AE300FBC5DA /* ViewController.swift */; };
 		1C7FC98A1F282AE300FBC5DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C7FC9881F282AE300FBC5DA /* Main.storyboard */; };
@@ -19,9 +24,15 @@
 		1C7FC9AC1F2AFD2100FBC5DA /* CBQuiltScrollCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C7FC9AA1F2AFD2100FBC5DA /* CBQuiltScrollCell.xib */; };
 		1CC6F0801F2F1B7D00449CBF /* CBScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC6F07F1F2F1B7D00449CBF /* CBScrollViewExtension.swift */; };
 		1CC6F0841F2F25D400449CBF /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC6F0831F2F25D400449CBF /* ResultViewController.swift */; };
+		78A2CD9F48F8145C213E905E /* Pods_GridMaker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD90E6FFEC3B7A4D9B814F3 /* Pods_GridMaker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C3C89061F30258C003B0309 /* CBFilterInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBFilterInfo.swift; sourceTree = "<group>"; };
+		1C3C89081F3025E7003B0309 /* CBQuiltItemLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBQuiltItemLoader.swift; sourceTree = "<group>"; };
+		1C3C890B1F3072CE003B0309 /* 01.acv */ = {isa = PBXFileReference; lastKnownFileType = file; path = 01.acv; sourceTree = "<group>"; };
+		1C3C890F1F307691003B0309 /* 02.acv */ = {isa = PBXFileReference; lastKnownFileType = file; path = 02.acv; sourceTree = "<group>"; };
+		1C3C89101F307691003B0309 /* 03.acv */ = {isa = PBXFileReference; lastKnownFileType = file; path = 03.acv; sourceTree = "<group>"; };
 		1C7FC9811F282AE300FBC5DA /* GridMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GridMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C7FC9841F282AE300FBC5DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C7FC9861F282AE300FBC5DA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +47,9 @@
 		1C7FC9AA1F2AFD2100FBC5DA /* CBQuiltScrollCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CBQuiltScrollCell.xib; sourceTree = "<group>"; };
 		1CC6F07F1F2F1B7D00449CBF /* CBScrollViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBScrollViewExtension.swift; sourceTree = "<group>"; };
 		1CC6F0831F2F25D400449CBF /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		1DD90E6FFEC3B7A4D9B814F3 /* Pods_GridMaker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GridMaker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE7A319778975AD5D28E324B /* Pods-GridMaker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GridMaker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GridMaker/Pods-GridMaker.debug.xcconfig"; sourceTree = "<group>"; };
+		DCCC1DBAA46A2976508188BC /* Pods-GridMaker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GridMaker.release.xcconfig"; path = "Pods/Target Support Files/Pods-GridMaker/Pods-GridMaker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,17 +57,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78A2CD9F48F8145C213E905E /* Pods_GridMaker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C3C890A1F3072CE003B0309 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1C3C890B1F3072CE003B0309 /* 01.acv */,
+				1C3C890F1F307691003B0309 /* 02.acv */,
+				1C3C89101F307691003B0309 /* 03.acv */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		1C7FC9781F282AE200FBC5DA = {
 			isa = PBXGroup;
 			children = (
 				1C7FC9831F282AE300FBC5DA /* GridMaker */,
 				1C7FC9821F282AE300FBC5DA /* Products */,
+				7987B936A272A2645D79B528 /* Pods */,
+				4A85BE7F6A6358A028EBD223 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,6 +95,7 @@
 		1C7FC9831F282AE300FBC5DA /* GridMaker */ = {
 			isa = PBXGroup;
 			children = (
+				1C3C890A1F3072CE003B0309 /* Resources */,
 				1C7FC9A21F2AF98D00FBC5DA /* QuiltEditor */,
 				1C7FC9841F282AE300FBC5DA /* AppDelegate.swift */,
 				1C7FC9861F282AE300FBC5DA /* ViewController.swift */,
@@ -89,8 +117,27 @@
 				1C7FC9A91F2AFD2100FBC5DA /* CBQuiltScrollCell.swift */,
 				1C7FC9AA1F2AFD2100FBC5DA /* CBQuiltScrollCell.xib */,
 				1CC6F07F1F2F1B7D00449CBF /* CBScrollViewExtension.swift */,
+				1C3C89061F30258C003B0309 /* CBFilterInfo.swift */,
+				1C3C89081F3025E7003B0309 /* CBQuiltItemLoader.swift */,
 			);
 			path = QuiltEditor;
+			sourceTree = "<group>";
+		};
+		4A85BE7F6A6358A028EBD223 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1DD90E6FFEC3B7A4D9B814F3 /* Pods_GridMaker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7987B936A272A2645D79B528 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CE7A319778975AD5D28E324B /* Pods-GridMaker.debug.xcconfig */,
+				DCCC1DBAA46A2976508188BC /* Pods-GridMaker.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -100,9 +147,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1C7FC9931F282AE300FBC5DA /* Build configuration list for PBXNativeTarget "GridMaker" */;
 			buildPhases = (
+				F336B9FAF4C3F46819E1C42E /* [CP] Check Pods Manifest.lock */,
 				1C7FC97D1F282AE300FBC5DA /* Sources */,
 				1C7FC97E1F282AE300FBC5DA /* Frameworks */,
 				1C7FC97F1F282AE300FBC5DA /* Resources */,
+				2FFCE0820261EC8F1B40757C /* [CP] Embed Pods Frameworks */,
+				4498175A4CD95CB42B757392 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -155,20 +205,73 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C7FC9AC1F2AFD2100FBC5DA /* CBQuiltScrollCell.xib in Resources */,
+				1C3C89121F308083003B0309 /* 03.acv in Resources */,
+				1C3C890C1F3072CE003B0309 /* 01.acv in Resources */,
 				1C7FC98F1F282AE300FBC5DA /* LaunchScreen.storyboard in Resources */,
 				1C7FC9A81F2AF9A400FBC5DA /* CBQuiltEditorView.xib in Resources */,
 				1C7FC98C1F282AE300FBC5DA /* Assets.xcassets in Resources */,
 				1C7FC98A1F282AE300FBC5DA /* Main.storyboard in Resources */,
+				1C3C89111F308080003B0309 /* 02.acv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2FFCE0820261EC8F1B40757C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GridMaker/Pods-GridMaker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4498175A4CD95CB42B757392 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GridMaker/Pods-GridMaker-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F336B9FAF4C3F46819E1C42E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1C7FC97D1F282AE300FBC5DA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C3C89071F30258C003B0309 /* CBFilterInfo.swift in Sources */,
+				1C3C89091F3025E7003B0309 /* CBQuiltItemLoader.swift in Sources */,
 				1C7FC9A61F2AF98D00FBC5DA /* CBQuiltLayout.swift in Sources */,
 				1C7FC9A51F2AF98D00FBC5DA /* CBQuiltEditorView.swift in Sources */,
 				1CC6F0841F2F25D400449CBF /* ResultViewController.swift in Sources */,
@@ -298,6 +401,7 @@
 		};
 		1C7FC9941F282AE300FBC5DA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE7A319778975AD5D28E324B /* Pods-GridMaker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -313,6 +417,7 @@
 		};
 		1C7FC9951F282AE300FBC5DA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCCC1DBAA46A2976508188BC /* Pods-GridMaker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

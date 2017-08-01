@@ -34,6 +34,29 @@ class ResultViewController: UIViewController {
     }
     
 
+    @IBAction func save(_ sender: Any) {
+        
+        guard let image = self.imageView.image else { return }
+        
+        guard let data = UIImageJPEGRepresentation(image, 0.99) else { return }
+        
+        let urlString = NSTemporaryDirectory().appending("/result.jpg")
+        
+        if FileManager.default.fileExists(atPath:urlString) == true {
+            
+            do {
+                try FileManager.default.removeItem(atPath: urlString)
+            } catch {}
+           
+        }
+        let url = URL(fileURLWithPath: urlString)
+        
+        do {
+            try data.write(to: url)
+        } catch {}
+        
+        self.navigationController?.popViewController(animated: true)
+    }
     /*
     // MARK: - Navigation
 

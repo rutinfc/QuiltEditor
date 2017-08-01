@@ -7,105 +7,8 @@
 //
 
 import UIKit
-import ImageIO
 
-@objc class CBQuiltItemLoader : NSObject {
-    
-    private var faceAllBounds : CGRect = CGRect.zero
-    fileprivate var cachedImage : UIImage?
-    
-    var imageSize : CGSize = CGSize(width: 1, height: 1)
-    var blockSize : Int {
-        return Int(self.imageSize.width * self.imageSize.height)
-    }
-    
-    func detectingFace(scale:CGFloat, frame:CGRect, complete:@escaping (CGRect)->Void) {
-        
-        if self.faceAllBounds.equalTo(CGRect.zero) == false {
-            complete(self.faceAllBounds)
-            return
-        }
-        
-        DispatchQueue.global().async {
-            
-            self.load(image: { (image) in
-                
-                guard let image = image else { return }
-                guard let cgImage = image.cgImage else { return }
-                let ciImage = CIImage(cgImage: cgImage)
-                
-                guard let detector = CIDetector(ofType:CIDetectorTypeFace, context: nil, options: [CIDetectorAccuracy:CIDetectorAccuracyHigh]) else {
-                    return
-                }
-                
-                var fatures: [CIFaceFeature]!
-                if let orientation = ciImage.properties[kCGImagePropertyOrientation as String] {
-                    fatures = detector.features(in: ciImage, options: [CIDetectorImageOrientation: orientation]) as! [CIFaceFeature]
-                } else {
-                    fatures = detector.features(in: ciImage)as! [CIFaceFeature]
-                }
-                
-                var featureBounds = CGRect.zero
-                
-                for faceFeature in fatures {
-                    
-                    let faceViewBounds = faceFeature.bounds
-                    
-                    if featureBounds.equalTo(CGRect.zero) {
-                        featureBounds = faceViewBounds
-                    } else {
-                        featureBounds = featureBounds.union(faceViewBounds)
-                    }
-                }
-                
-                if featureBounds.equalTo(CGRect.zero) == true {
-                    
-                    DispatchQueue.main.async {
-                        complete(CGRect.zero)
-                    }
-                    return
-                }
-                
-                let inputImageSize = ciImage.extent.size
-                
-                var transform = CGAffineTransform(scaleX: 1, y: -1)
-                transform = transform.translatedBy(x: 0, y: -inputImageSize.height)
-                
-                self.faceAllBounds = featureBounds.applying(transform)
-                
-                self.faceAllBounds = self.faceAllBounds.applying(CGAffineTransform(scaleX: scale, y: scale))
-                self.faceAllBounds.origin.x += frame.origin.x
-                self.faceAllBounds.origin.y += frame.origin.y
-                
-                DispatchQueue.main.async {
-                    complete(self.faceAllBounds)
-                }
-            })
-        }
-    }
-    
-    func load(image:(UIImage?)->Void) {
-        
-    }
-}
-
-class CBQuiltUIImageItemLoader : CBQuiltItemLoader {
-    
-    var image : UIImage?
-    
-    override func load(image:(UIImage?)->Void) {
-        
-        if (self.cachedImage != nil) {
-            image(self.cachedImage!)
-            return
-        }
-        
-        image(self.image)
-        self.cachedImage = self.image
-    }
-}
-
-@objc class CBQuiltEditorInfo : NSObject {
+class CBQuiltEditorInfo : NSObject {
     
     var column = 2
     var loaderList = [CBQuiltItemLoader]()
@@ -127,15 +30,11 @@ class CBQuiltUIImageItemLoader : CBQuiltItemLoader {
             }
         }
         
-        if totalBlock > 0 {
-            return false
-        }
-        
         return true
     }
 }
 
-@objc class CBQuiltEditorView: UIView {
+class CBQuiltEditorView: UIView {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var layout : CBQuiltLayout!
@@ -220,6 +119,51 @@ class CBQuiltUIImageItemLoader : CBQuiltItemLoader {
         }
         
         self.frame = prevFrame
+    }
+    
+    func availableFilters() -> [CBFilterInfo] {
+        var list = [CBFilterInfo]()
+        var info = CBFilterInfo()
+        info.type = .none
+        info.name = "초기화"
+        list.append(info)
+        
+        info = CBFilterInfo()
+        info.type = .sample1
+        info.name = "세피아"
+        list.append(info)
+        
+        info = CBFilterInfo()
+        info.type = .sample2
+        info.name = "샘플1"
+        list.append(info)
+        
+        info = CBFilterInfo()
+        info.type = .sample3
+        info.name = "샘플2"
+        list.append(info)
+        
+        info = CBFilterInfo()
+        info.type = .sample4
+        info.name = "샘플3"
+        list.append(info)
+        
+        return list
+    }
+    
+    func apply(filter:CBFilterInfo, complete:@escaping (Void)->Void) {
+        
+//        print("START")
+        
+        DispatchQueue.main.async {
+            for cell in self.collectionView.visibleCells as! [CBQuiltScrollCell] {
+                cell.applyFilter(info: filter)
+            }
+            
+            complete()
+        }
+        
+//        print("FINISHED")
     }
 }
 

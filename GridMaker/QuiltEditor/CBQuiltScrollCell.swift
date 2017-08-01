@@ -22,6 +22,7 @@ class CBQuiltScrollCell: UICollectionViewCell, UIScrollViewDelegate {
     
     var prevPosition : CGPoint?
     var prevDiffScale : CGFloat?
+    var prevImageSize : CGSize?
     var detectingFace : Bool = false
     
     var loader:CBQuiltItemLoader? {
@@ -51,6 +52,7 @@ class CBQuiltScrollCell: UICollectionViewCell, UIScrollViewDelegate {
             self.scrollView.updateMinZoomScale(contentSize:image.size, outSize: self.contentView.bounds.size)
             self.scrollView.maximumZoomScale = self.scrollView.minimumZoomScale * 2
             self.scrollView.zoomScale = self.scrollView.minimumZoomScale
+            print("Change Zoom : \(self.scrollView.zoomScale) | \(image.size)")
         }
         
         if (self.detectingFace == false) {
@@ -58,10 +60,10 @@ class CBQuiltScrollCell: UICollectionViewCell, UIScrollViewDelegate {
             self.loader?.detectingFace(scale: self.scrollView.zoomScale, frame: self.imageView.frame, complete: { (faceBounds) in
                 
                 if faceBounds.equalTo(CGRect.zero) == false {
-                    let view = UIView(frame: faceBounds)
-                    view.layer.borderColor = UIColor.red.cgColor
-                    view.layer.borderWidth = 0.5
-                    self.scrollView.addSubview(view)
+//                    let view = UIView(frame: faceBounds)
+//                    view.layer.borderColor = UIColor.red.cgColor
+//                    view.layer.borderWidth = 0.5
+//                    self.scrollView.addSubview(view)
                     self.scrollView.scrollRectToVisibleCenter(visibleRect:faceBounds, animated: false)
                 }
                 
@@ -93,34 +95,70 @@ class CBQuiltScrollCell: UICollectionViewCell, UIScrollViewDelegate {
         
         if let prevPosition = self.prevPosition {
             
-            if let prevDiffScale = self.prevDiffScale {
+            var diff = CGFloat(1)
+            
+            if let imageSize = self.prevImageSize {
                 
-                if prevDiffScale != 1 {
-                    self.scrollView.zoomScale *= prevDiffScale
-                    print(prevDiffScale)
+                if let image = self.imageView.image, image.size != imageSize {
+                    diff = image.size.width / imageSize.width
                 }
+            }
+            
+            if let prevDiffScale = self.prevDiffScale, prevDiffScale != 1 {
+                
+                self.scrollView.zoomScale *= prevDiffScale
             }
             
             var offset = prevPosition
             offset.x *= self.scrollView.zoomScale
             offset.y *= self.scrollView.zoomScale
+            
+            offset.x *= diff
+            offset.y *= diff
+            
             self.scrollView.contentOffset = offset
             
+//            print("Restore : \(String(describing: self.title.text)) | \(offset) | \(diff) | \(self.scrollView.zoomScale)")
         }
     }
     
     func cachedCurrentOffset() {
         
-        var offset = scrollView.contentOffset
-        offset.x /= scrollView.zoomScale
-        offset.y /= scrollView.zoomScale
+        var offset = self.scrollView.contentOffset
+        offset.x /= self.scrollView.zoomScale
+        offset.y /= self.scrollView.zoomScale
         
-        self.prevDiffScale = scrollView.zoomScale / scrollView.minimumZoomScale
+        self.prevImageSize = self.imageView.image?.size
+        self.prevDiffScale = self.scrollView.zoomScale / self.scrollView.minimumZoomScale
         
         self.prevPosition = offset
         self.detectingFace = true
         
-//        print("CACHED : \(String(describing: self.title.text)) | \(scrollView.contentOffset) | \(scrollView.zoomScale) -> \(offset) | \(String(describing: self.prevDiffScale))")
+//        print("Cached : \(String(describing: self.title.text)) | \(self.scrollView.contentOffset) | \(self.prevPosition!) | \(scrollView.zoomScale) | \(self.prevDiffScale!)")
+    }
+    
+    func applyFilter(info:CBFilterInfo) {
+        
+        self.loader?.load(image: { (image) in
+            
+            if info.type == .none {
+                self.imageView.image = image
+            }
+            
+            guard let image = image else { return }
+            
+            self.cachedCurrentOffset()
+            
+            guard let process = CBFilterProcess.createFilter(type: info.type) else { return }
+            
+            process.apply(image:image) { (resultImage) in
+                
+                if resultImage != nil {
+                    self.imageView.image = resultImage
+                    self.restoreContentOffset()
+                }
+            }
+        })
     }
     
     fileprivate func updateConstraints(viewSize:CGSize) {

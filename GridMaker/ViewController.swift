@@ -12,6 +12,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var editorContainer: UIView!
     
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
+    
     var editorView : CBQuiltEditorView?
     var resultImage : UIImage?
 
@@ -72,6 +74,7 @@ class ViewController: UIViewController {
         var rect = CGRect.zero
         rect.size = CGSize(width: self.editorContainer.bounds.width, height: self.editorContainer.bounds.width)
         self.editorView?.frame = rect
+        self.indicator.stopAnimating()
     }
 
     override func didReceiveMemoryWarning() {
@@ -88,6 +91,38 @@ class ViewController: UIViewController {
             self.resultImage = image
             self.performSegue(withIdentifier: "Result", sender: nil)
         }
+    }
+    
+    @IBAction func filter(_ sender: Any) {
+        
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        guard let filterList = self.editorView?.availableFilters() else { return }
+        
+        for info in filterList {
+            
+            var style : UIAlertActionStyle = .default
+            
+            if info.type == .none {
+                style = .destructive
+            }
+            
+            let action = UIAlertAction(title: info.name, style: style) { (action) in
+                
+                self.indicator.startAnimating()
+                
+                self.editorView?.apply(filter: info, complete: { (Void) in
+                    
+                    self.indicator.stopAnimating()
+                })
+            };
+            actionSheet.addAction(action)
+        }
+        
+        let action = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        actionSheet.addAction(action)
+        
+        self.present(actionSheet, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
