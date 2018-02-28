@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C07893B204675EE00B70AD7 /* CBPatternLayoutInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C078939204675EE00B70AD7 /* CBPatternLayoutInfo.swift */; };
+		1C07893C204675EE00B70AD7 /* CBPatternLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C07893A204675EE00B70AD7 /* CBPatternLayout.swift */; };
 		1C3C89071F30258C003B0309 /* CBFilterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3C89061F30258C003B0309 /* CBFilterInfo.swift */; };
 		1C3C89091F3025E7003B0309 /* CBQuiltItemLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3C89081F3025E7003B0309 /* CBQuiltItemLoader.swift */; };
 		1C3C890C1F3072CE003B0309 /* 01.acv in Resources */ = {isa = PBXBuildFile; fileRef = 1C3C890B1F3072CE003B0309 /* 01.acv */; };
@@ -29,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C078939204675EE00B70AD7 /* CBPatternLayoutInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBPatternLayoutInfo.swift; sourceTree = "<group>"; };
+		1C07893A204675EE00B70AD7 /* CBPatternLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBPatternLayout.swift; sourceTree = "<group>"; };
 		1C3C89061F30258C003B0309 /* CBFilterInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBFilterInfo.swift; sourceTree = "<group>"; };
 		1C3C89081F3025E7003B0309 /* CBQuiltItemLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBQuiltItemLoader.swift; sourceTree = "<group>"; };
 		1C3C890B1F3072CE003B0309 /* 01.acv */ = {isa = PBXFileReference; lastKnownFileType = file; path = 01.acv; sourceTree = "<group>"; };
@@ -115,6 +119,8 @@
 			children = (
 				1C7FC9A31F2AF98D00FBC5DA /* CBQuiltEditorView.swift */,
 				1CE0D90F203EA1000079E452 /* CBStoryPreviewGridLayout.swift */,
+				1C07893A204675EE00B70AD7 /* CBPatternLayout.swift */,
+				1C078939204675EE00B70AD7 /* CBPatternLayoutInfo.swift */,
 				1C7FC9A41F2AF98D00FBC5DA /* CBQuiltLayout.swift */,
 				1C7FC9A71F2AF9A400FBC5DA /* CBQuiltEditorView.xib */,
 				1C7FC9A91F2AFD2100FBC5DA /* CBQuiltScrollCell.swift */,
@@ -281,6 +287,8 @@
 				1C7FC9871F282AE300FBC5DA /* ViewController.swift in Sources */,
 				1C7FC9AB1F2AFD2100FBC5DA /* CBQuiltScrollCell.swift in Sources */,
 				1CE0D910203EA1010079E452 /* CBStoryPreviewGridLayout.swift in Sources */,
+				1C07893B204675EE00B70AD7 /* CBPatternLayoutInfo.swift in Sources */,
+				1C07893C204675EE00B70AD7 /* CBPatternLayout.swift in Sources */,
 				1CC6F0801F2F1B7D00449CBF /* CBScrollViewExtension.swift in Sources */,
 				1C7FC9851F282AE300FBC5DA /* AppDelegate.swift in Sources */,
 			);
